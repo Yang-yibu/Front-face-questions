@@ -38,9 +38,12 @@ var a=new Date();a.format('yyyy/MM/dd HH:mm:ss');
 
 
 + 2、如何将JS中的arguments对象，转换成普通的数组(可以用ES6的语法)
+	方法一：
+		var argumentsArr=[].slice.call(arguments);//(es5)
+	方法二：
+		let argumentsArr = Array.form(arguments);//(es6)
 
 + 3、请使用两种不同的方法实现数组去重(可以使用ES6语法)
-
 
 	```javascript
 
@@ -57,6 +60,18 @@ var a=new Date();a.format('yyyy/MM/dd HH:mm:ss');
         return Array.from(new Set(arr));
     };
     unique([1,2,3,3,'3', '']); // [1,2,3,'3', '']
+	
+	// 三：判断在s数组中是否存在，不存在则push到s数组中（javascript）
+	var arr = ['abc','abcd','sss','2','d','t','2','ss','f','22','d'];
+	//定义一个新的数组
+	var s = [];
+	//遍历数组
+	for(var i = 0;i<arr.length;i++){
+	    if(s.indexOf(arr[i]) == -1){  //判断在s数组中是否存在，不存在则push到s数组中
+	        s.push(arr[i]);
+	    }
+	}
+	console.log(s);
 
 	```
 
