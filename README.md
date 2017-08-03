@@ -216,6 +216,14 @@ var a=new Date();a.format('yyyy/MM/dd HH:mm:ss');
 	+ b:固定宽度的会计元素(宽度为500px的div)
 	+ c:不固定宽度的块级元素
 
+```javascriipt
+
+	a:設置display:block,給個固定寬度，再：margin:0 auto
+	b:直接margin:0 auto
+	c:使用css3,定位
+
+```
+
 + 2、如何理解position属性？设置不同的position值对文档流布局有和影响
 
 + 3、较大z-index值的元素一定能'盖住'较小的z-index值的元素吗？如果不是，请举例说明
