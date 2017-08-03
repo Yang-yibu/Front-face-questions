@@ -183,7 +183,29 @@ var a=new Date();a.format('yyyy/MM/dd HH:mm:ss');
 	console.log(object);//=>{abc: "10", b: "2000", c: "999"},undefined未判断
 
 ```
+```javascript
 
+	var ss="http://www.xxxx.net/article/46326.htm?abc=10&b=2000&c=999";
+	//获取到链接后的值,以对象的形式展示
+	function getRequest(){
+		var url=location.search;//获取url中"?"符后的字符串,
+		var Request=new Object();
+		if(url.indexOf("?")!=-1){
+			var str=url.substr(1);//获取到"?"后的字符串
+			var strs=str.split("&");
+			for(var i=0;i<strs.length;i++){
+				Request[strs[i].split("=")[0]]=strs[i].split("=")[1];
+			}
+			return Request
+		}
+	}
+
+	//使用方法
+	var ruquest=new getRequest();
+	console.log(request.abc);
+	console.log(request.b);
+	console.log(request.c);
+```
 
 
 
