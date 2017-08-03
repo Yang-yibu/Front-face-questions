@@ -38,10 +38,12 @@ var a=new Date();a.format('yyyy/MM/dd HH:mm:ss');
 
 
 + 2、如何将JS中的arguments对象，转换成普通的数组(可以用ES6的语法)
+	```javascript
 	方法一：
 		var argumentsArr=[].slice.call(arguments);//(es5)
 	方法二：
 		let argumentsArr = Array.form(arguments);//(es6)
+	```
 
 + 3、请使用两种不同的方法实现数组去重(可以使用ES6语法)
 
