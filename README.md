@@ -3,7 +3,7 @@
 + 1、实现一个formDate方法，其能将一个Date日期对象，格式化为yyy-MM-dd HH:mm:ss的字符串形式
 
 ```javascript
-	
+
 	'use strict';
 	// 对Date的扩展，将 Date 转化为指定格式的String
 	// 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
@@ -40,6 +40,21 @@ var a=new Date();a.format('yyyy/MM/dd HH:mm:ss');
 + 2、如何将JS中的arguments对象，转换成普通的数组(可以用ES6的语法)
 
 + 3、请使用两种不同的方法实现数组去重(可以使用ES6语法)
+	```javascript
+	// 一：利用filter
+	// 利用 indexOf 总是返回第一个元素的位置，后续重复元素与indexOf 返回的位置不符
+    var arr = [1, 2, 3, 1, 4, 3], r;
+    r = arr.filter(function (ele, index, self) {
+        return self.indexOf(ele) === index;
+    })
+    console.log(r);
+
+	// 二：ES6
+	function unique(arr){
+        return Array.from(new Set(arr));
+    };
+    unique([1,2,3,3,'3', '']); // [1,2,3,'3', '']
+	```
 
 + 4、请实现一个‘深拷贝’方法，（如jQuery.extend(true,{},{name:'Bob',schools:['保安中学'，'中山大学']})；）
 
@@ -68,13 +83,13 @@ var a=new Date();a.format('yyyy/MM/dd HH:mm:ss');
 	//1
 	str=str.replace(/[a]*[b]*[c]*/gi,'');
 	console.log(str)//=>"345efg"
-	
+
 	//2
 	str=str.replace(/[5]/gi,function(r){
 		return '['+r+']';
-	});								
+	});
 	console.log(str)//=>"abc34[5]efgabcab"
-	
+
 	//3
 	var str="abc345efgabcab";
 	var reg=/[0-9]/gi;
