@@ -176,7 +176,7 @@ var a=new Date();a.format('yyyy/MM/dd HH:mm:ss');
 
 ```
 
-+ 13、有这样一个"URL=http://www.xxx.net/article/46326.htm?abc=10&b=2000&c=999",请写出一段JS程序提取URL中的各个参数(参数名和参数值的个数不确定)，将去按key:value形式返回到一个json结构中，如：{aaa: "10", bbbd: "2000", ffc: "999"}
++ 13、有这样一个"URL=xxxx.aaa.bbb/index.php?abc=10&b=2000&c=999",请写出一段JS程序提取URL中的各个参数(参数名和参数值的个数不确定)，将去按key:value形式返回到一个json结构中，如：{aaa: "10", bbbd: "2000", ffc: "999"}
 
 ```javascript
 
