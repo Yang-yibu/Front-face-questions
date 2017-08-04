@@ -46,6 +46,20 @@ var a=new Date();a.format('yyyy/MM/dd HH:mm:ss');
 	```
 
 + 3、请使用两种不同的方法实现数组去重(可以使用ES6语法)
+// author:JsLin
+uniqueArray: function(arry) { //数组去重
+            var n = {},
+                r = []; //n为hash表，r为临时数组
+            for (var i = 0; i < arry.length; i++) //遍历当前数组
+            {
+                if (!n[arry[i]]) //如果hash表中没有当前项
+                {
+                    n[arry[i]] = true; //存入hash表
+                    r.push(arry[i]); //把当前数组的当前项push到临时数组里面
+                }
+            }
+            return r;
+        }
 
 	```javascript
 
