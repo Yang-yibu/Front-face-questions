@@ -1,4 +1,4 @@
-## 面試題小結
+## 面試題小結（！！）
 ### 一、javascript
 + 1、实现一个formDate方法，其能将一个Date日期对象，格式化为yyy-MM-dd HH:mm:ss的字符串形式
 
