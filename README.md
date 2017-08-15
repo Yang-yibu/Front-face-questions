@@ -124,7 +124,7 @@ var a=new Date();a.format('yyyy/MM/dd HH:mm:ss');
 
 ```javascript
 
-	
+
 	其實是js中原型链和作用域链根本不存在这样的链结构，而是通过查找引用，递归遍历，形式上是“链”结构。
 	我們經常這樣
 	function Person () {
@@ -165,7 +165,7 @@ var a=new Date();a.format('yyyy/MM/dd HH:mm:ss');
 	    };
 	    var person = new Person();
 	    person.say();//person.say is not a function
-	
+
 	其实，只需要明白原型对象的结构即可：
 	Function.prototype = {
         constructor : Function,
@@ -173,7 +173,7 @@ var a=new Date();a.format('yyyy/MM/dd HH:mm:ss');
         some prototype properties: ...
     };
 	总结：函数的原型对象constructor默认指向函数本身，原型对象除了有原型属性外，为了实现继承，还有一个原型链指针__proto__，该指针指向上一层的原型对象，而上一层的原型对象的结构依然类似，这样利用__proto__一直指向Object的原型对象上，而Object的原型对象用Object.prototype.__proto__ = null表示原型链的最顶端，如此变形成了javascript的原型链继承，同时也解释了为什么所有的javascript对象都具有Object的基本方法。
-	
+
 
 ```
 
