@@ -261,7 +261,39 @@ var a=new Date();a.format('yyyy/MM/dd HH:mm:ss');
 	console.log(request.c);
 ```
 
++ 14、几种基本数据类型?复杂数据类型?值类型和引用数据类型?堆栈数据结构?
 
+```javascript
+
+
+```
+
++ 15、声明函数作用提升?声明变量和声明函数的提升有什么区别?
+
+```javascript
+
+```
+
++ 16、判断数据类型?
+
+```javascript
+
+	
+
+```
+
++ 17、异步编程？
+
+```javascript
+
+```
+
++ 18、事件流?事件捕获？事件冒泡？
+
+```javascript
+
+
+```
 
 ### 二、CSS
 
