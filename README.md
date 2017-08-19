@@ -317,12 +317,105 @@ var a=new Date();a.format('yyyy/MM/dd HH:mm:ss');
 > IE中的事件流叫事件冒泡；事件冒泡：事件开始时由最具体的元素接收，然后逐级向上传播到较为不具体的节点（文档）。对于html来说，就是当一个元素产生了一个事件，它会把这个事件传递给它的父元素，父元素接收到了之后，还要继续传递给它的上一级元素，就这样一直传播到document对象（亲测现在的浏览器到window对象，只有IE8及下不这样
 
 + 19、如何清除一个定时器?
-+ 20、如何添加一个dom对象到body中?innerHTML和innerText区别?
+
+> window.clearInterval();
+
+> window.clearTimeout();
+
++ 20、如何添加一个dom对象到body中?innerHTML和innerText区别?分别简述五个window对象、属性
+
+> body.appendChild(dom元素)；
+
+> innerHTML:从对象的起始位置到终止位置的全部内容,包括Html标签。
+
+> innerText:从起始位置到终止位置的内容, 但它去除Html标签 
+
+> 成员对象
+
+> window.event window.document window.history 
+
+> window.screen window.navigator window.external
+
+> Window对象的属性如下：
+
+> window //窗户自身
+
+> window.self //引用本窗户window=window.self 
+
+> window.name //为窗户命名 
+
+> window.defaultStatus //设定窗户状态栏信息 
+
+> window.location //URL地址,配备布置这个属性可以打开新的页面
+
 + 21、数据持久化技术(ajax)?简述ajax流程
+
+> 1)客户端产生js的事件
+
+> 2)创建XMLHttpRequest对象
+
+> 3)对XMLHttpRequest进行配置
+
+> 4)通过AJAX引擎发送异步请求
+
+> 5)服务器端接收请求并且处理请求，返回html或者xml内容
+
+> 6)XML调用一个callback()处理响应回来的内容
+
+> 7)页面局部刷新
+
 + 22、回调函数?
+
+> 回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。
+
 + 23、什么是闭包?* 堆栈溢出有什么区别？ 内存泄漏? 那些操作会造成内存泄漏？怎么样防止内存泄漏？
+
+> 闭包：就是能够读取其他函数内部变量的函数。
+
+> 堆栈溢出：就是不顾堆栈中分配的局部数据块大小，向该数据块写入了过多的数据，导致数据越界，结果覆盖了别的数据。经常会在递归中发生。
+
+> 内存泄露是指：用动态存储分配函数内存空间，在使用完毕后未释放，导致一直占据该内存单元。直到程序结束。指任何对象在您不再拥有或需要它之后仍然存在。
+
+> 造成内存泄漏：
+
+> setTimeout 的第一个参数使用字符串而非函数的话，会引发内存泄漏。
+
+> 闭包、控制台日志、循环（在两个对象彼此引用且彼此保留时，就会产生一个循环）
+
+> 防止内存泄露：
+
+> 1、不要动态绑定事件；
+
+> 2、不要在动态添加，或者会被动态移除的dom上绑事件，用事件冒泡在父容器监听事件；
+
+> 3、如果要违反上面的原则，必须提供destroy方法，保证移除dom后事件也被移除，这点可以参考Backbone的源代码，做的比较好；
+
+> 4、单例化，少创建dom，少绑事件。
+
 + 24、平时工作中怎么样进行数据交互?如果后台没有提供数据怎么样进行开发?mock数据与后台返回的格式不同意怎么办?
+	> 由后台编写接口文档、提供数据接口实、前台通过ajax访问实现数据交互；
+	
+	> 在没有数据的情况下寻找后台提供静态数据或者自己定义mock数据；
+	
+	> 返回数据不统一时编写映射文件 对数据进行映射。
 + 25、简述ajax执行流程
+
+```javascript
+	
+	//基本步骤：
+	var xhr =null;//创建对象 
+	if(window.XMLHttpRequest){
+	       xhr = new XMLHttpRequest();
+	}else{
+	       xhr = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xhr.open(“方式”,”地址”,”标志位”);//初始化请求 
+	   xhr.setRequestHeader(“”,””);//设置http头信息 
+	xhr.onreadystatechange =function(){}//指定回调函数 
+	xhr.send();//发送请求 
+
+
+```
 
 
 
