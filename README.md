@@ -517,6 +517,54 @@ var a=new Date();a.format('yyyy/MM/dd HH:mm:ss');
 
 > 通过nodeObject.nodeType判断节点类型：其中，nodeObject 为DOM节点（节点对象）。该属性返回以数字表示的节点类型，例如，元素节点返回 1，属性节点返回 2 。
 
++ 33、如何合并两个数组？数组删除一个元素?
+
+```javascript
+
+	//三种方法。
+	（1）var arr1=[1,2,3];
+		var arr2=[4,5,6];
+		arr1 = arr1.concat(arr2);
+		console.log(arr1); 
+	（2）var arr1=[1,2,3];
+		var arr2=[4,5,6];
+		Array.prototype.push.apply(arr1,arr2);
+		console.log(arr1);
+	（3） var arr1=[1,2,3];
+		var arr2=[4,5,6];
+		for (var i=0; i < arr2.length; i++) {
+		   arr1.push( arr2[i] );
+		}
+		console.log(arr1);  
+
+```
+
++ 34、强制转换 显式转换 隐式转换?
+
+```javascript
+	
+	//强制类型转换：
+	Boolean(0)                // => false - 零
+	Boolean(new object())   // => true - 对象
+	Number(undefined)       // =>   NaN
+	Number(null)              // => 0
+	String(null)              // => "null"
+	parseInt( )
+	parseFloat( )
+	JSON.parse( )
+	JSON.stringify ( )
+
+```
+
+> 隐式类型转换：
+
+> 在使用算术运算符时，运算符两边的数据类型可以是任意的，比如，一个字符串可以和数字相加。之所以不同的数据类型之间可以做运算，是因为JavaScript引擎在运算之前会悄悄的把他们进行了隐式类型转换的（例如：x+"" //等价于String(x)+x //等价于Number(x)x-0 //同上!!x //等价于Boolean(x),是双叹号）
+
+> 显式转换：
+
+> 如果程序要求一定要将某一类型的数据转换为另一种类型，则可以利用强制类型转换运算符进行转换，这种强制转换过程称为显示转换。
+显示转换是你定义让这个值类型转换成你要用的值类型，是底到高的转换。例 int 到float就可以直接转，int i=5,想把他转换成char类型，就用显式转换（char）i
+
 
 ### 二、CSS
 
