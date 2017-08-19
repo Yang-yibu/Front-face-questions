@@ -417,6 +417,105 @@ var a=new Date();a.format('yyyy/MM/dd HH:mm:ss');
 
 ```
 
++ 26、自执行函数?用于什么场景？好处?
+
+> 自执行函数:1、声明一个匿名函数2、马上调用这个匿名函数。
+作用：创建一个独立的作用域。
+
+> 好处：防止变量弥散到全局，以免各种js库冲突。隔离作用域避免污染，或者截断作用域链，避免闭包造成引用变量无法释放。利用立即执行特性，返回需要的业务函数或对象，避免每次通过条件判断来处理
+
+> 场景：一般用于框架、插件等场景
+
++ 27、html和xhtml有什么区别?
+
+> HTML是一种基本的WEB网页设计语言，XHTML是一个基于XML的标记语言。
+
+> 1.XHTML 元素必须被正确地嵌套。
+
+> 2.XHTML 元素必须被关闭。
+
+> 3.标签名必须用小写字母。
+
+> 4.空标签也必须被关闭。
+
+> 5.XHTML 文档必须拥有根元素。
+
++ 28、什么是构造函数？与普通函数有什么区别?
+
+> 构造函数：是一种特殊的方法、主要用来创建对象时初始化对象，总与new运算符一起使用，创建对象的语句中构造函数的函数名必须与类名完全相同。
+与普通函数相比只能由new关键字调用，构造函数是类的标示
+
++ 29、通过new创建一个对象的时候，函数内部有哪些改变
+
+> 创建一个空对象，并且 this 变量引用该对象，同时还继承了该函数的原型。
+
+> 属性和方法被加入到 this 引用的对象中。
+
+> 新创建的对象由 this 所引用，并且最后隐式的返回 this 
+
+```javascript
+
+	//构造函数Person(),默认return this
+    function Person(){
+        this.name='xxxx';
+        this.age=10;
+        this.sad=function(){console.log(this.age)}
+        this.speak=function(){
+            console.log('I am '+this.name+' '+'今年 :'+this.age);
+        }
+    }
+    var person1=new Person();
+    person1.age=20;
+    person1.sad();//20
+    //注意 new操作符 :的内部原理
+        1：创建一个空对象
+        2：把this指向到这个空对象
+        3：把空对象的内部原型(proto)指向构造函数的原型(prototype)对象
+        4：当前构造函数执行完成后，如果没有return的话，就会把当前的空对象返回，一般都没有return
+    //注意 new操作符原理：执行的时候类似在构造函数Person()内部，过程可以如下去理解，实际不是！！
+    function Person(){
+        var tt={};
+        this=tt;
+        tt.__proto__=Person.prototype;
+        this.name='xxxx';
+        this.age=10;
+        this.sad=function(){...}
+        return tt;
+    }
+    //prototype只有函数才有的原型
+    //__proto__所有的对象都有的
+    person1.__proto__===Person.prototype;//true
+    person1.prototype===Person.prototype;//false
+    person1===person2//false
+
+    var person2=new Person();
+    //可以把所有实例对象person1、person2...的公用方法封装到构造函数的的原型里面去,就可以减少空间,所以可以优化
+    Person.prototype.speak=function(){
+        console.log('I am '+this.name+' '+'今年 :'+this.age);
+    }
+    person2.name='person2';
+    person2.age=100;
+    person2.sad();//100
+    person2.speak();//I am person2 今年 :100
+
+
+```
+
++ 30、事件委托？有什么好处?
+
+> 利用冒泡的原理，把事件加到父级上，触发执行效果
+
+> 好处：新添加的元素还会有之前的事件；提高性能。
+
++ 31、window.onload ==? DOMContentLoaded ?
+
+> 一般情况下，DOMContentLoaded事件要在window.onload之前执行，当DOM树构建完成的时候就会执行DOMContentLoaded事件，而window.onload是在页面载入完成的时候，才执行，这其中包括图片等元素。大多数时候我们只是想在DOM树构建完成后，绑定事件到元素，我们并不需要图片元素，加上有时候加载外域图片的速度非常缓慢。
+
++ 32、节点类型?判断当前节点类型?
+
+> 1. 元素节点、属性节点 、文本节点、注释节点、文档节点
+
+> 通过nodeObject.nodeType判断节点类型：其中，nodeObject 为DOM节点（节点对象）。该属性返回以数字表示的节点类型，例如，元素节点返回 1，属性节点返回 2 。
 
 
 ### 二、CSS
